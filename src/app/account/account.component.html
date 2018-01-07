@@ -1,0 +1,17 @@
+<div class="form-container" id="toolbar">
+    <header [@fallIn]="state">
+      <button (click)="logout()" class="basic-btn">Logout</button>
+    </header>
+    <div id="page" [@moveInLeft]="state">
+      <div *ngIf="af.authState | async as user; else showLogin" >
+        <h2>Hello {{ user.displayName }}!</h2>
+        <!-- <img [src]="user.photoURL | ../../assets/images/default_avatar.png" /> -->
+        <img [src]="user.photoURL" onError="this.src='../../assets/images/default_avatar.png'"/>
+        <div>Provider: {{ user.providerData[0].providerId }}</div>
+        <div> {{ user | json }}</div>
+      </div>
+      <ng-template #showLogin>
+        <div class="loading"></div>
+      </ng-template>
+    </div>
+</div>
