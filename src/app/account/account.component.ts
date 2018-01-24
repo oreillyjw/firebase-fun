@@ -34,7 +34,6 @@ export class AccountComponent implements OnInit {
      this.router.navigateByUrl('/login');
   }
 
-
   ngOnInit() {
     this._userService.getUser()
       .subscribe((user) => {
