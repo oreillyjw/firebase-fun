@@ -7,3 +7,28 @@
   * https://www.codementor.io/hellotunmbi/part-2-complete-step-by-step-firebase-authentication-in-angular-2-f1b0jhvds
   * https://coursetro.com/posts/code/32/Create-a-Full-Angular-Authentication-System-with-Firebase
   * https://alligator.io/angular/firebase-authentication-angularfire2/
+
+
+Back database rule
+```
+{
+  "rules": {
+    ".read": true,
+    ".write": "auth != null"
+  }
+}
+```
+
+New database rule
+```
+{
+	"rules": {
+    "todos": {
+       "$uid": {
+         ".read": "$uid === auth.uid",
+         ".write": "$uid === auth.uid"
+       }
+     }
+   }
+}
+```

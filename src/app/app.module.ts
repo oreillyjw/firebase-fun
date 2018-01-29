@@ -6,20 +6,28 @@ import { AngularFireModule } from 'angularfire2';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // New imports to update based on AngularFire2 version 4
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { EmailComponent } from './email/email.component';
 import { SignupComponent } from './signup/signup.component';
 import { AccountComponent } from './account/account.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 import { AuthGuard } from './auth.service';
 import { routes } from './app.routes';
 
 import { environment } from '../environments/environment';
-import {UserService} from './user.service';
+import { UserService } from './user.service';
+import { TodoService } from './service/todo.service';
+
+import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoComponent } from './todo/todo.component';
+import { TodoListHeaderComponent } from './todo-list-header/todo-list-header.component';
+import { TodoListItemComponent } from './todo-list-item/todo-list-item.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +35,12 @@ import {UserService} from './user.service';
     LoginComponent,
     EmailComponent,
     SignupComponent,
-    AccountComponent
+    AccountComponent,
+    TodoListComponent,
+    TodoComponent,
+    TodoListHeaderComponent,
+    TodoListItemComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -37,9 +50,10 @@ import {UserService} from './user.service';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    AngularFirestoreModule.enablePersistence(),
     routes
   ],
-  providers: [AuthGuard, UserService],
+  providers: [AuthGuard, UserService, TodoService, AngularFireDatabase],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
