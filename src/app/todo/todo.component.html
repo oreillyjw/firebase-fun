@@ -1,9 +1,35 @@
-<section class="todoapp">
-  <app-todo-list-header (add)="onAddTodo($event)"></app-todo-list-header>
-  <!-- section is now replaced with app-todo-list -->
-  <app-todo-list [todos]="todos" (toggleComplete)="onToggleTodoComplete($event)"
-               (remove)="onRemoveTodo($event)"></app-todo-list>
-   <div *ngIf="!todos.length" style="text-align: center;">
-     You currently do not have any todo's yet.
-   </div>
-</section>
+<div class="container-fluid">
+  <div class="row flex-xl-nowrap">
+    <div class="col-md-6">
+      <section class="todoapp todo-main">
+          <app-todo-list-header (add)="onAddTodo($event)" [type]="'main'"></app-todo-list-header>
+          <!-- section is now replaced with app-todo-list -->
+          <app-todo-list [todos]="todos" (toggleComplete)="onToggleTodoComplete($event)"
+                       (remove)="onRemoveTodo($event)" (selected)="onSelectedToDo($event)"></app-todo-list>
+           <div *ngIf="!todos.length" style="text-align: center; height: 100px; display: flex; justify-content: center; align-items: center; font-size: 26px;">
+             You currently do not have any todo's yet.
+           </div>
+      </section>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="selectedTodo" style="text-align: center;">
+        <section class="todoapp todo-sub">
+            <app-todo-list-header (add)="onAddSubTodo($event)" [type]="'sub'" ></app-todo-list-header>
+            <!-- section is now replaced with app-todo-list -->
+            <app-todo-list [todos]="subTodos" (toggleComplete)="onToggleSubTodoComplete($event)"
+                         (remove)="onRemoveSubTodo($event)"></app-todo-list>
+             <div *ngIf="!subTodos.length" style="text-align: center; height: 100px; display: flex; justify-content: center; align-items: center; font-size: 26px;">
+               You currently do not have any sub-task's yet.
+             </div>
+        </section>
+      </div>
+      <div *ngIf="!selectedTodo" style="text-align: center;">
+        <section class="todoapp todo-sub">
+          <div style="text-align: center; height: 100px; display: flex; justify-content: center; align-items: center; font-size: 26px;">
+            Select an item todo
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

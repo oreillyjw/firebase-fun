@@ -28,6 +28,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoComponent } from './todo/todo.component';
 import { TodoListHeaderComponent } from './todo-list-header/todo-list-header.component';
 import { TodoListItemComponent } from './todo-list-item/todo-list-item.component';
+import { SubTasksService } from './service/sub-tasks.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ import { TodoListItemComponent } from './todo-list-item/todo-list-item.component
     AngularFirestoreModule.enablePersistence(),
     routes
   ],
-  providers: [AuthGuard, UserService, TodoService, AngularFireDatabase],
+  providers: [AuthGuard, UserService, TodoService, AngularFireDatabase, SubTasksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

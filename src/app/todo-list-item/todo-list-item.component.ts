@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { Todo } from '../model/todo.model';
 
 @Component({
   selector: 'app-todo-list-item',
   templateUrl: './todo-list-item.component.html',
-  styleUrls: ['./todo-list-item.component.css']
+  styleUrls: ['./todo-list-item.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TodoListItemComponent implements OnInit {
 

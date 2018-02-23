@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
       new firebase.auth.FacebookAuthProvider()
     ).then(
        (success) => {
-       this.router.navigate(['/account']);
+       this.router.navigate(['/todo-list']);
      }).catch(
        (err) => {
        this.error = err;
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
         new firebase.auth.GoogleAuthProvider()
       ).then(
          (success) => {
-         this.router.navigate(['/account']);
+         this.router.navigate(['/todo-list']);
        }).catch(
          (err) => {
          this.error = err;
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
       .subscribe(user => {
         console.log(user);
         if (user){
-          this.router.navigateByUrl('/account');
+          this.router.navigateByUrl('/todo-list');
         }
       });
   }

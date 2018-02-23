@@ -1,6 +1,6 @@
 <section class="main" *ngIf="todos.length > 0">
   <ul class="todo-list">
-    <li *ngFor="let todo of todos" [class.completed]="todo.complete">
+    <li *ngFor="let todo of todos" [class.completed]="todo.complete" (click)="onSelectTodo(todo)">
       <app-todo-list-item
         [todo]="todo"
         (toggleComplete)="onToggleTodoComplete($event)"
@@ -8,12 +8,3 @@
     </li>
   </ul>
 </section>
-
-
-<!-- <h2>Todo List</h2>
-
-<ul>
-  <li *ngFor="let todo of (todos$ | async)" [class.done]="todo.done">
-    {{ todo.content }}
-  </li>
-</ul> -->
