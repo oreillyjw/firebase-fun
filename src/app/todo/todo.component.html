@@ -14,6 +14,9 @@
     <div class="col-md-6">
       <div *ngIf="selectedTodo" style="text-align: center;">
         <section class="todoapp todo-sub">
+          <todo-settings [todo]="selectedTodo" (contentChange)="onSelectedUpdate($event)"></todo-settings>
+        </section>
+        <section class="todoapp todo-sub">
             <app-todo-list-header (add)="onAddSubTodo($event)" [type]="'sub'" ></app-todo-list-header>
             <!-- section is now replaced with app-todo-list -->
             <app-todo-list [todos]="subTodos" (toggleComplete)="onToggleSubTodoComplete($event)"

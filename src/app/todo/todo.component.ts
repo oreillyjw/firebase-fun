@@ -97,4 +97,10 @@ export class TodoComponent implements OnInit {
     });
   }
 
+  onSelectedUpdate(todo: Todo){
+    console.log( "Jonathon");
+    console.log(todo);
+    this.todoService.updateTodo(todo);
+  }
+
 }

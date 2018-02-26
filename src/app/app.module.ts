@@ -29,6 +29,7 @@ import { TodoComponent } from './todo/todo.component';
 import { TodoListHeaderComponent } from './todo-list-header/todo-list-header.component';
 import { TodoListItemComponent } from './todo-list-item/todo-list-item.component';
 import { SubTasksService } from './service/sub-tasks.service';
+import { TodoSettingsComponent } from './todo-settings/todo-settings.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { SubTasksService } from './service/sub-tasks.service';
     TodoComponent,
     TodoListHeaderComponent,
     TodoListItemComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    TodoSettingsComponent
   ],
   imports: [
     BrowserModule,
